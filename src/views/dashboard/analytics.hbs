@@ -1,0 +1,118 @@
+<div id="sidebar">
+  {{> sidebar}}
+</div>
+    <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+<section class="control-panel">
+  <div class="panel-container">
+    <div class="main_cards-container">
+      {{> dashboard-cards}}
+    </div>
+    <div class="tables-container">
+      <div class="primary_table">
+        <div class="primary_table-information">
+          <h3>
+            <i class="fa-solid fa-fire-flame-curved"></i>
+            Productos Populares
+          </h3>
+        </div>
+        <div class="primary_table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del Producto</th>
+                <th>Popularidad (% Visitas)</th>
+              </tr>
+            </thead>
+            <tbody id="productosPopularesTable">
+                  {{#each data}}
+                      {{#each productos}}
+                          <tr>
+                            <td>{{ID_PRODUCTO}}</td>
+                            <td>{{NOMBRE_PRODUCTO}}</td>
+                            <td>
+                              <div class='popularity-bar'>
+                                <p>{{PORCENTAJE}}%</p>
+                                  <div class='bar-container'>
+                                    <span class='bar'></span>
+                                    <span
+                                      class='progress'
+                                      id='item-01'
+                                      style='width: {{PORCENTAJE}}%'
+                                    ></span>
+                                  </div>
+                              </div>
+                            </td>
+                          </tr>
+                      {{/each}}
+                  {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{#if data.isAdmin}}
+      <div class="secondary_table">
+        <div class="secondary_table-information">
+          <h3><i class="fa-solid fa-users"></i> Usuarios</h3>
+          <div class="buttons-container">
+            <a href="Añadir_Usuario" class="table_info_button"><i
+                class="fa-solid fa-plus"
+              ></i></a>
+            <a href="Usuarios" class="table_info_button"><i
+                class="fa-solid fa-list-ol"
+              ></i></a>
+          </div>
+        </div>
+        <div class="secondary_table-container">
+          <div class="item-wrapper" id="tablaUsuarios">
+                  {{#each data }}
+                    {{#each usuarios_dashboard}}
+                        <div class="item">
+                            <div class="info-container">
+                                <div class="item-icon">
+                                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                                </div>
+                            <div class="item-info">
+                                <span class="name">{{NOMBRE}}</span>
+                                {{#if_eq TIPO_USUARIO 0}}
+                                    <span class="role"
+                                        ><i class="fa-solid fa-user-tie"></i> Desarrollador</span
+                                    >
+                                {{/if_eq}}
+
+                                {{#if_eq TIPO_USUARIO 1}}
+                                    <span class="role"
+                                        ><i class="fa-solid fa-hammer"></i> Administrador</span
+                                    >
+                                {{/if_eq}}
+
+                                {{#if_eq TIPO_USUARIO 2}}
+                                    <span class="role"
+                                        ><i class="fa-solid fa-dolly"></i></i> Gestor de productos</span
+                                    >
+                                {{/if_eq}}
+                            </div>
+                        </div>
+                            <div class="buttons-container">
+                                {{#buttons_users_dashboard TIPO_USUARIO 2 HABILITADO ID_USUARIO}} {{/buttons_users_dashboard}}
+
+                                {{#buttons_users_dashboard TIPO_USUARIO 1 HABILITADO ID_USUARIO}} {{/buttons_users_dashboard}}
+                            </div>
+                        </div>
+                    {{/each }}
+                {{/each }}
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</section>

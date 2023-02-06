@@ -1,0 +1,170 @@
+<div id="sidebar">
+    {{> sidebar}}
+</div>
+
+    <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <section class="control-panel">
+      <div class="panel-container">
+        <div class="main-form-container">
+          <h2 class="main-title">
+            <i class="fa-solid fa-file-circle-plus"></i> Añadir Productos
+          </h2>
+          <hr />
+          <p class="description">
+            Complete el formulario para añadir productos.
+          </p>
+          <form action="/dashboard/addProduct" method="POST" enctype="multipart/form-data">
+            <div class="form-container">
+              <label for="uploadProductImage">
+                <div class="upload-container">
+                  <i class="fa-solid fa-plus"></i>
+                  <p>Subir Imágen del Producto</p>
+                  <input
+                    id="uploadProductImage"
+                    name="uploadProductImage"
+                    class="inputFile"
+                    type="file"
+                    />
+                </div>
+                <br />
+                <span id="imageName"></span>
+              </label>
+
+              <div class="upload-complete-container">
+                <span class="remove-image">
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
+                <img
+                  src="https://bluemet.com.uy/assets/images/Foto2.jpg"
+                  alt="Imagen Testing"
+                  loading="lazy"
+                  id="img-uploaded"
+                />
+              </div>
+              <!-- <div class="image-uploaded-container">
+                <div class="item">
+                  <span class="close-image">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                  <img src="https://bluemet.com.uy/assets/images/Foto2.jpg" alt="" />
+                </div>
+
+                <div class="item">
+                  <span class="close-image">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                  <img src="https://bluemet.com.uy/assets/images/Foto2.jpg" alt="" />
+                </div>
+
+                <div class="item">
+                  <span class="close-image">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                  <img src="https://bluemet.com.uy/assets/images/Foto2.jpg" alt="" />
+                </div>
+
+                <div class="item">
+                  <span class="close-image">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                  <img src="https://bluemet.com.uy/assets/images/Foto2.jpg" alt="" />
+                </div>
+              </div> -->
+
+                {{#if img_error}}
+                  <p class="message">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{img_error}}
+                  </p>
+                {{/if}}
+
+              <div class="form-body">
+                <h3 class="title">Información</h3>
+                <hr />
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-file-signature"></i> Nombre del
+                    Producto</label
+                  >
+                  <input type="text" name="NOMBRE_PRODUCTO" id="nombre_producto" />
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-earth-americas"></i>
+                    Procedencia</label
+                  >
+                  <select name="PROCEDENCIA" id="procedencia_producto">
+                    <option value="none" hidden>Seleccione Procedencia</option>
+                    <option value="Fabricación Nacional">Fabricación Nacional</option>
+                    <option value="Productos Importados">Productos Importados</option>
+                  </select>
+                </div>
+
+                <div class="form-item" id="categoria_producto_item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-list"></i> Categoría</label
+                  >
+                  <select name="CATEGORIA" id="categoria_producto">
+                    <option value="0" hidden></option>
+                    <option value="1">Categoría 1</option>
+                    <option value="1">Categoría 2</option>
+                  </select>
+                </div>
+
+                <div class="form-item" id="tipo_producto_item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-box"></i> Tipo de Producto</label
+                  >
+                  <select name="TIPO_PRODUCTO" id="tipo_producto">
+                    <option value="0" hidden></option>
+                    <option value="1">Tipo de Producto 1</option>
+                    <option value="1">Tipo de Producto 2</option>
+                  </select>
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-boxes-stacked"></i> Stock
+                  </label>
+                  <input
+                    type="number"
+                    name="STOCK"
+                    id="stock_producto"
+                    min="0"
+                    value="0"
+                  />
+                </div>
+
+                {{#if error}}
+                  <p class="message">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{error}}
+                  </p>
+                {{/if}}
+
+                      {{#if success}}
+        <p class="message-success">
+          <i class="fa-solid fa-circle-check"></i>
+          {{success}}
+        </p>
+      {{/if}}
+
+                <button class="submit-button" type="submit">
+                  <i class="fa-solid fa-file-circle-plus"></i> Agregar Producto
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>

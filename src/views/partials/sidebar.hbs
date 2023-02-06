@@ -1,0 +1,110 @@
+<button class="sidebar-responsive-button" onclick="toggleSidebar()">
+  <i class="fa-solid fa-bars"></i>
+</button>
+<section class="sidebar">
+  <div class="sidebar-container">
+    <button class="sidebar-responsive" onclick="toggleSidebar()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <a href="/" class="sidebar-logo">
+      <!-- <i class="fas fa-hammer"></i> -->
+      <span class="logo"><p>B<span>M</span></p></span>
+      <span class="title">BLUE <span>MET</span></span>
+    </a>
+
+    <div class="divider">
+      <h4>General</h4>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <a href="/dashboard">
+          <span class="icon"><i class="fa-solid fa-table-columns"></i></span>
+          <span class="description">Dashboard</span>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/dashboard/analytics">
+          <span class="icon"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="description">Analytics</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="divider">
+      <h4>Content</h4>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <a href="/dashboard/addProduct">
+          <span class="icon"><i class="fa-solid fa-file-circle-plus"></i></span>
+          <span class="description">Añadir Producto</span>
+        </a>
+      </div>
+      <div class="item">
+        <a href="/dashboard/productos">
+          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+          <span class="description">Productos</span>
+        </a>
+      </div>
+    </div>
+    {{#if data.isAdmin}}
+    <div class="divider" id="add_usuarios_divider">
+      <h4>Admin.</h4>
+    </div>
+    <div class="item-container" id="add_usuarios">
+      <div class="item">
+        <a href="/dashboard/addUser">
+          <span class="icon"><i class="fa-solid fa-person-circle-plus"></i></span>
+          <span class="description">Añadir Usuario</span>
+        </a>
+      </div>
+
+      <!--
+      <div class="item">
+        <a href="Usuarios">
+          <span class="icon"><i class="fa-solid fa-people-group"></i></span>
+          <span class="description">Usuarios</span>
+        </a>
+      </div>
+        -->
+    </div>
+    {{/if}}
+    <div class="divider">
+        <hr />
+      </div>
+      <div class="item-container">
+        <div class="item-user">
+          <a href="">
+            <span class="icon"
+              ><p id="ICONO">
+                {{#sideBarNameLetters user.NOMBRE}}{{/sideBarNameLetters}}
+              </p></i
+            ></span>
+            <div class="user-info">
+                <span class="name" id="USERNAME">
+                      {{user.NOMBRE}} 
+                </span>
+                <span class="role" id="USER_TYPE">{{#tipoUsuario user.TIPO_USUARIO}} {{/tipoUsuario}}</span>
+            </div>
+          </a>
+        </div>
+        <div class="item">
+          <a href="/dashboard/settings">
+
+            <span class="icon"
+              ><i class="fa-solid fa-gear"></i></i
+            ></span>
+            <span class="description">Configuración</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="/logout" class="cerrar_session">
+            <span class="icon"
+              ><i class="fa-solid fa-arrow-right-from-bracket"></i
+            ></span>
+            <span class="description">Cerrar Sesión</span>
+          </a>
+        </div>
+      </div>
+  </div>
+</section>

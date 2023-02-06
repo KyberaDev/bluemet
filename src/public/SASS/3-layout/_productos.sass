@@ -1,0 +1,225 @@
+.section-information
+    width: 100%
+    box-sizing: border-box
+    padding: 30px 20px
+    margin: 20px 0
+
+    +border-radius(3em 0 3em 0)
+
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    text-align: center
+
+    .section-header
+        width: calc(100% - 20px)
+        text-align: center
+        margin: 0 30px
+        .title
+            font-size: 2em
+            color: $azul_bluemet
+            margin: 15px 0
+
+        hr
+            border: 2px solid $amarillo_contraste
+            margin: 0 auto
+            width: 100px
+            +border-radius(10px)
+
+        .desc
+            color: $azul_bluemet
+
+        .button-container
+            width: 100%
+            text-align: right
+            margin: 20px 0
+
+            a
+                color: #fff
+                transition: .2s
+
+            a:hover
+                color: $amarillo_contraste
+
+    .section-body
+        width: 100%
+        max-height: 450px
+        overflow-y: auto
+        +border-radius(10px)
+
+        .items-container
+            width: 100%
+            height: 100%
+            background-color: #fff
+            // display: grid
+            // grid-gap: 20px
+            // grid-template-columns: repeat(4,1fr)
+
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            flex-wrap: wrap
+            box-sizing: border-box
+            padding: 20px 0
+            .item
+                min-width: 240px
+                height: 360px
+                background-color: #fff
+                +border-radius(10px)
+                cursor: pointer
+                border: none
+                transition: .2s
+                padding: 0
+                overflow: hidden
+                padding: 10px
+                margin: 10px
+                box-shadow: $box_shadow
+
+                display: flex
+                justify-content: flex-start
+                align-items: center
+                flex-direction: column
+                box-sizing: border-box
+
+                .item-image
+                    width: 100%
+                    height: 220px
+                    overflow: hidden
+                    box-sizing: border-box
+                    background-color: $azul_bluemet
+                    +border-radius(10px)
+
+                    img
+                        width: 100%
+                        height: 100%
+                        object-fit: cover
+
+                .item-body
+                    width: 100%
+                    text-align: left
+                    margin: 10px 0
+
+                    .title
+                        font-size: 1.3em
+                        margin: 0
+                        margin-bottom: 15px
+                        color: $azul_bluemet
+
+                    .desc
+                        margin: 5px 0
+                        font-size: .9em
+
+                        i
+                            color: $azul_bluemet
+
+            .item:hover
+                transform: scale(1.01)
+                background-color: $azul_bluemet
+                .item-body
+                    .title
+                        color: $amarillo_contraste
+                    .desc
+                        color: #fff
+                        i
+                            color: $amarillo_contraste
+
+        .main-item-container
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-wrap: wrap
+
+            .main-item
+                position: relative
+                width: 300px
+                height: 300px
+                +border-radius(10px)
+
+                box-sizing: border-box
+                overflow: hidden
+
+                margin: 10px
+
+                .visible
+                    width: 100%
+                    height: 100%
+                    background-color: #ccc
+
+                    img
+                        width: 100%
+                        height: 100%
+                        object-fit: cover
+
+                .hover
+                    position: absolute
+                    top: 0
+                    left: 0
+
+                    width: 100%
+                    height: 100%
+                    opacity: 0
+                    background-color: #393f7fce
+
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    flex-direction: column
+
+                    box-sizing: border-box
+                    padding: 20px
+
+                    transition: opacity .5s
+
+                    .title
+                        font-size: 1.5em
+                        color: $amarillo_contraste
+                        margin: 5px 0
+
+                    .desc
+                        font-size: .8em
+                        color: #fff
+
+            .main-item:hover
+                .hover
+                    opacity: 1
+
+        .image-container
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-wrap: wrap
+
+            width: 100%
+
+            img
+                width: 240px
+                height: 240px
+                border-radius: 10px
+                object-fit: cover
+                margin: 10px
+
+.section-information.productos
+    background-color: $azul_bluemet
+    .section-body
+        +border-radius(3em 0 3em 0)
+
+    .section-header
+        .title
+            color: $amarillo_contraste
+        .desc
+            color: #fff
+
+.section-information.nosotros
+    max-width: 900px
+    margin: 0 auto
+
+    .section-body
+        overflow-y: unset
+        max-height: unset
+
+        .main-item-container
+            text-align: left
+
+            p
+                width: 100%

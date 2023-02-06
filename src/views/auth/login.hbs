@@ -1,0 +1,56 @@
+      <div id="pre-loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+<section class="session-form">
+  <div class="form-container">
+    <img
+      class="form-image"
+      src="https://bluemet.com.uy/assets/svg/Imagotipo Horizontal - BlueMet.svg"
+      alt="Logo Bluemet"
+    />
+    <form action="/auth/signin" method="post">
+      <div class="form-item">
+        <span class="icon"><i class="fa-solid fa-user"></i></span>
+        <input
+          type="text"
+          name="userName"
+          id="userName"
+          placeholder="Username"
+        />
+      </div>
+      <div class="form-item">
+        <span class="icon"><i class="fa-solid fa-key"></i></span>
+        <input
+          type="password"
+          name="passWord"
+          id="passWord"
+          placeholder="Password"
+        />
+      </div>
+      {{#if error}}
+        <p class="message">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          {{error}}
+        </p>
+      {{/if}}
+
+      {{#if success}}
+        <p class="message-success">
+          <i class="fa-solid fa-circle-check"></i>
+          {{success}}
+        </p>
+      {{/if}}
+
+      <button class="submit-button" type="submit">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        Iniciar Sesión
+      </button>
+    </form>
+  </div>
+</section>

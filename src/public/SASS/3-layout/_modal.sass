@@ -1,0 +1,215 @@
+.modal
+    width: 100%
+    height: 100vh
+
+    position: fixed
+    z-index: 50
+    top: 0
+    left: 0
+
+    background: rgba(0, 0, 0, .5)
+
+    display: none
+    justify-content: center
+    align-items: center
+    animation: fadeIn 1s forwards
+
+    .modal-content
+        width: 270px
+        padding: 30px 10px
+        height: 320px
+        background: #fff
+        +border-radius(20px)
+        text-align: center
+        margin: 10px
+
+        position: relative
+        color: $azul_bluemet
+
+        display: flex
+        justify-content: center
+        align-items: center
+        box-sizing: border-box
+
+        .close-button
+            position: absolute
+            top: 10px
+            right: 10px
+
+            font-size: 2em
+
+            background: transparent
+            border: none
+            cursor: pointer
+            color: #999
+            transition: .1s
+        .close-button:hover
+            color: #666
+
+        .modal-content-body
+            width: 100%
+            padding: 20px 0
+            .modal-header
+                height: 80px
+
+                display: flex
+                justify-content: center
+                align-items: center
+
+                i
+                    font-size: 5em
+                    color: #26b887
+            .modal-header.error
+                i
+                    color: #c54343
+
+            .modal-textBox
+                h3
+                    color: #26b887
+                    font-size: 2em
+                    margin: 0
+                h3.error
+                    color: #c54343
+
+                p
+                    margin: 15px 20px
+                    color: #666
+                    font-size: 14px
+
+                .modal-button
+                    @extend %main_button
+                    +border-radius(10px)
+                    color: #fff
+                    margin: 0 auto
+
+                .modal-button.success
+                    background-color: #26b887
+
+                .modal-button.error
+                    background-color: #c54343
+
+                .modal-button:hover
+                    @extend %main_button_hover
+                    color: #fff
+
+            .modal-container
+                width: 100%
+                display: grid
+                grid-template-columns: 60% 1fr
+                padding: 0 20px
+                box-sizing: border-box
+
+                .main-container
+                    width: 100%
+                    .image
+                        max-width: 400px
+                        width: 100%
+                        height: 250px
+                        margin: 0 auto
+                        +border-radius(10px)
+                        overflow: hidden
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                    .item-body
+                        text-align: left
+                        margin: 20px 0
+
+                        .title
+                            margin: 10px 0
+                            font-size: 1.5rem
+                        .desc
+                            margin: 5px 0
+                            font-size: .95rem
+
+                .secondary-container
+                    width: 100%
+                    box-sizing: border-box
+                    padding: 0 20px
+
+                    .title
+                        font-size: 1.8rem
+                        margin: 0
+
+                    .desc
+                        font-size: .95rem
+                        margin: 10px 0
+
+                    .input-wrapper
+                        .input
+                            position: relative
+                            margin: 20px 0
+
+                            .label
+                                position: absolute
+                                pointer-events: none
+                                transform: translateY(12px)
+                                transition: .2s
+                                color: #666
+                            input,textarea
+                                background: transparent
+                                border: none
+                                border-bottom: 1px solid #ccc
+
+                                width: 100%
+                                height: 30px
+                                font-size: .9rem
+
+                                outline: none
+                                resize: none
+                            textarea
+                                height: 100px
+
+                            input:focus ~ .label
+                                opacity: 0
+                        .submit-button
+                            @extend %main_button
+                            width: 100%
+                            +border-radius(10px)
+                        .submit-button:hover
+                            @extend %main_button_hover
+
+    .modal-content.productos
+        max-width: 800px
+        width: 100%
+        height: auto
+
+@media screen and(max-width: 760px)
+    #modal
+        .modal
+            .modal-content.productos
+                max-width: 500px
+
+                .close-button
+                    right: 20px
+                .modal-content-body
+                    max-height: 400px
+                    overflow-y: auto
+                    .modal-container
+                        grid-template-columns: 100%
+
+                        .main-container
+                            .image
+                                max-width: 250px
+                                height: 150px
+                            .item-body
+                                text-align: center
+
+                                .title
+                                    font-size: 1.5rem
+
+                                .desc
+                                    font-size: .9rem
+
+                        .secondary-container
+                            width: 90%
+                            margin: 0 auto
+                            margin-top: 20px
+                            border-top: 1px solid #ccc
+                            padding: 15px
+                            .title
+                                font-size: 1.5rem
+
+                            .desc
+                                font-size: .9rem

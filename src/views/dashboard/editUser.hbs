@@ -1,0 +1,132 @@
+<div id="sidebar">
+  {{> sidebar}}
+</div>
+    <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+<section class="control-panel">
+  <div class="panel-container">
+    <div class="main-form-container">
+      <h2 class="main-title">
+        <i class="fa-solid fa-user-gear"></i>
+        Editar Usuario
+      </h2>
+      <hr />
+      <p class="description">
+        Complete el formulario para editar este usuario.
+      </p>
+    {{#each data}}
+        {{#each userData}}
+            <form action="/dashboard/editUser/{{ID_USUARIO}}" method="post">
+        {{/each}}
+    {{/each}}
+        <div class="form-container">
+          <div class="form-body">
+            <div class="form-item">
+              <label for="productName"><i
+                  class="fa-solid fa-file-signature"
+                ></i>
+                Nombre Completo
+              </label>
+              {{#each data}}
+                {{#each userData}}
+                  <input
+                    type="text"
+                    name="NOMBRE"
+                    id="mailUsuario"
+                    value="{{NOMBRE}}"
+                  />
+                {{/each}}
+              {{/each}}
+            </div>
+
+            <div class="form-item">
+              <label for="productName"><i class="fa-solid fa-user"></i>
+                Usuario
+              </label>
+              {{#each data}}
+                {{#each userData}}
+                  <input
+                    type="text"
+                    name="USUARIO"
+                    id="mailUsuario"
+                    value="{{USUARIO}}"
+                  />
+                {{/each}}
+              {{/each}}
+            </div>
+
+            <div class="form-item">
+              <label for="productName"><i
+                  class="fa-solid fa-file-signature"
+                ></i>
+                Mail
+              </label>
+              {{#each data}}
+                {{#each userData}}
+                  <input
+                    type="text"
+                    name="MAIL"
+                    id="mailUsuario"
+                    value="{{MAIL}}"
+                  />
+                {{/each}}
+              {{/each}}
+            </div>
+
+            <!--
+            <div class="form-item">
+              <label for="productName"><i class="fa-solid fa-align-center"></i>
+                Nueva contraseña
+              </label>
+              <input type="password" name="PASSWD" id="passwdUsuario" />
+            </div>
+
+            <div class="form-item">
+              <label for="productName"><i class="fa-solid fa-align-center"></i>
+                Repetir Contraseña
+              </label>
+              <input type="password" name="userRePass" id="rePassUsuario" />
+            </div>
+            -->
+            <div class="form-item">
+              <label for="productName"><i class="fa-solid fa-user-gear"></i>
+                Rol</label>
+              <select name="TIPO_USUARIO" id="rolUsuario">
+                <option value="0" hidden>Seleccione un rol</option>
+                {{#each data}}
+                    {{#each userData}}
+                        {{#tipo_usuario }} {{/tipo_usuario}}
+                    {{/each}}
+                {{/each}}
+              </select>
+            </div>
+            {{#if error}}
+              <p class="message">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{error}}
+              </p>
+            {{/if}}
+            <div class="edit-buttons">
+                <a class="submit-button" id="btn-volver-edit" href="/dashboard/">
+                    <i class="fa-solid fa-angle-left"></i>
+                    volver
+                </a>
+
+                <button class="submit-button" type="submit">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Guardar Cambios
+                </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

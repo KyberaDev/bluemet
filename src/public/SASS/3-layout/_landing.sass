@@ -1,0 +1,117 @@
+.landing
+    width: 100%
+    min-height: calc(100vh - 80px)
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    overflow: hidden
+
+    .landing-container
+        max-width: 1400px
+        width: calc(100% - 80px)
+
+        display: flex
+        justify-content: space-between
+
+        align-items: center
+        margin: 0 auto
+
+    .landing-information
+        max-width: 650px
+        width: 100%
+
+        .information
+            animation: fadeInRight 1s forwards
+            h2
+
+                color: $azul_bluemet
+                font-size: 3rem
+                font-weight: bold
+                margin: 15px 0
+            hr
+                border: 2px solid $amarillo_contraste
+                margin: 0
+                width: 100px
+                +border-radius(10px)
+
+            p
+                color: #666
+            a
+                width: 150px
+                +border-radius(10px)
+        .items
+            width: 100%
+            margin-top: 5em
+            display: flex
+            justify-content: space-evenly
+            align-items: flex-start
+            flex-wrap: wrap
+
+            animation: fadeInUp 1s forwards
+
+            .item
+                width: 180px
+                margin: 10px
+
+                h3
+                    color: $azul_bluemet
+
+                    i
+                        color: $amarillo_contraste
+                p
+                    color: #666
+
+    .landing-image
+        display: flex
+        justify-content: center
+        align-items: center
+
+        animation: fadeInLeft 1s forwards
+
+        .image-container
+            width: 450px
+            height: 450px
+            border-radius: 30% 70% 47% 53% / 30% 38% 62% 70%
+            overflow: hidden
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: left
+
+@media screen and (max-width: 1200px)
+    .landing
+        .landing-container
+            flex-direction: column-reverse
+            justify-content: space-evenly
+            text-align: center
+
+            .landing-information
+                .information
+                    h2
+                        font-size: 2.4rem
+
+                    p
+                        font-size: 14px
+
+                    hr,a
+                        margin: 0 auto
+                .items
+                    margin-top: 40px
+
+            .landing-image
+                .image-container
+                    width: 250px
+                    height: 250px
+
+@media screen and (max-width: $breakpoint-mobile)
+    .landing
+        .landing-container
+            .landing-information
+                .items
+                    .item
+                        width: 100%
+                        text-align: center

@@ -1,0 +1,72 @@
+<div id="sidebar">
+    {{> sidebar}}
+</div>
+
+    <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+
+<section class="control-panel">
+  <div class="panel-container">
+    <div class="complete_table_container">
+      <div class="primary_table">
+        <div class="primary_table-information">
+          <h3 id="cantidad_productos_seccion_productos">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            Productos Totales ({{data.productos.length}})
+          </h3>
+          <div class="buttons-container">
+            <button class="table_info_filter_button" id="filter_button">
+              <i class="fa-solid fa-arrow-down-short-wide"></i>
+              Filtrar
+            </button>
+          </div>
+        </div>
+        <div class="primary_table-filters">
+          <div class="filter">
+            <span class="icon"><i
+                class="fa-solid fa-magnifying-glass"
+              ></i></span>
+            <input class="filter-input" id="buscador_productos_dashboard" onkeyup="buscador_tabla_productos_dashboard()" type="text" placeholder="Buscar" />
+          </div>
+        </div>
+        <div class="primary_table-container">
+          <table class="searchable sortable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del Producto</th>
+                <th>Procedencia</th>
+                <th>Categoría</th>
+                <th>Tipo de Producto</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody id="tabla_productos_dashboard">
+              {{#each data.productos}}
+                <tr>
+                  <td>{{ID_PRODUCTO}}</td>
+                  <td>{{NOMBRE_PRODUCTO}}</td>
+                  <td>{{#Procedencia PROCEDENCIA}}{{/Procedencia}}</td>
+                  <td>{{CATEGORIA}}</td>
+                  <td>
+                  {{#if_not_tipo TIPO_PRODUCTO}}
+                    {{TIPO_PRODUCTO}}
+                  {{/if_not_tipo}}
+                  </td>
+                  <td>{{STOCK}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

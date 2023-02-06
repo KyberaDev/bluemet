@@ -1,0 +1,85 @@
+    <div id="sidebar">
+        {{> sidebar}}
+    </div>
+  <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <section class="control-panel">
+      <div class="panel-container">
+        <div class="main-form-container">
+          <h2 class="main-title">
+            <i class="fa-solid fa-person-circle-plus"></i> Añadir Usuario
+          </h2>
+          <hr />
+          <p class="description">
+            Complete el formulario para añadir un usuario.
+          </p>
+          <form action="/dashboard/addUser" method="post">
+            <div class="form-container">
+              <div class="form-body">
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-file-signature"></i> Nombre Completo
+                  </label>
+                  <input type="text" name="NOMBRE" id="mailUsuario"/>
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-user"></i> Usuario
+                  </label>
+                  <input type="text" name="USUARIO" id="nombreUsuario"/>
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-file-signature"></i> Mail
+                  </label>
+                  <input type="text" name="MAIL" id="mailUsuario"/>
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-align-center"></i> Contraseña
+                  </label>
+                  <input type="password" name="PASSWD" id="passwdUsuario"/>
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-align-center"></i> Repetir Contraseña
+                  </label>
+                  <input type="password" name="userRePass" id="rePassUsuario"/>
+                </div>
+
+                <div class="form-item">
+                  <label for="productName"
+                    ><i class="fa-solid fa-user-gear"></i> Rol</label
+                  >
+                  <select name="TIPO_USUARIO" id="rolUsuario">
+                    <option value="0" hidden>Seleccione un rol</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Gestor de Productos</option>
+                  </select>
+                </div>
+                {{#if error}}
+                  <p class="message">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{error}}
+                  </p>
+                {{/if}}
+                <button class="submit-button" type="submit">
+                  <i class="fa-solid fa-person-circle-plus"></i> Agregar Usuario
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
