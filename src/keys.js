@@ -9,7 +9,7 @@ module.exports = {
     },
 
     database : {
-        host: '127.0.0.1',
+        host: '191.101.71.140',
         user:  'u409719253_bluemet',
         password: '#e=o3mWR*s3',
         database: 'u409719253_bluemet_DB',
