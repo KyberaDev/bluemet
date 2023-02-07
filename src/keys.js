@@ -9,11 +9,11 @@ module.exports = {
     },
 
     database : {
-        host: '191.101.71.140',
+        host: '127.0.0.1',
         user:  'u409719253_bluemet',
         password: '#e=o3mWR*s3',
         database: 'u409719253_bluemet_DB',
-        port: '3306'
+        port: '3001'
     }
 
 }
