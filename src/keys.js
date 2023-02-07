@@ -13,7 +13,6 @@ module.exports = {
         user:  'u409719253_bluemet',
         password: '#e=o3mWR*s3',
         database: 'u409719253_bluemet_DB',
-        port: '/var/run/mysqld/mysqld.sock'
     }
 
 }
