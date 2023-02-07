@@ -5,11 +5,11 @@ module.exports = {
         user:  process.env.DB_USER || 'root',
         password: process.env.DB_PASSWORD || 'root',
         database: process.env.DB_NAME || 'u409719253_bluemet_DB',
-        port: '3307'
+        port: '3306'
     },
 
     database : {
-        host: 'localhost',
+        host: '0.0.0.0',
         user:  'u409719253_bluemet',
         password: '#e=o3mWR*s3',
         database: 'u409719253_bluemet_DB',
