@@ -1,0 +1,44 @@
+.session-form
+    width: 100%
+    height: 100vh
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .form-container
+        max-width: 300px
+        width: 100%
+
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+
+        box-sizing: border-box
+        padding: 40px 20px
+
+        +border-radius(20px)
+        box-shadow: $box_shadow
+
+        .form-image
+            max-width: 200px
+            width: 100%
+
+        form
+            .form-item
+                @extend %main_input
+                margin: 20px 0
+
+            .message
+                color: #ff4949
+                font-size: 14px
+
+            .submit-button
+                @extend %main_button
+                +border-radius(10px)
+                margin: 0 auto
+                margin-top: 20px
+
+            .submit-button:hover
+                @extend %main_button_hover

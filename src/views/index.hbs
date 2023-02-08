@@ -1,0 +1,216 @@
+{{> header}}
+
+      <div id="pre-loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+<section class="landing">
+  <div class="landing-container">
+    <div class="landing-information">
+      <div class="information">
+        <h2>
+          Líderes en soluciones industriales y residenciales.
+        </h2>
+        <hr />
+        <p>
+          Somos una empresa uruguaya con más de 20 años de experiencia, dedicada
+          a la fabricación e instalación de una vastísima lista de productos
+          relacionados con el rubro metalúrgico.
+        </p>
+        <a href="#" class="main_button"><i class="fas fa-info-circle"></i>
+          Más información</a>
+      </div>
+      <div class="items">
+        <div class="item">
+          <h3><i class="fa-solid fa-star"></i> Calidad</h3>
+          <p>
+            Nuestra fabricación se ha destacado a lo largo de estos años por la
+            calidad del producto terminado.
+          </p>
+        </div>
+        <div class="item">
+          <h3>
+            <i class="fa-solid fa-user-tie"></i>
+            Formalidad
+          </h3>
+          <p>
+            La formalidad y la responsabilidad ante nuestros clientes es nuestra
+            mayor satisfacción.
+          </p>
+        </div>
+        <div class="item">
+          <h3>
+            <i class="fas fa-lightbulb"></i>
+            Satisfacción
+          </h3>
+          <p>
+            Solucionar sus necesidades es nuestra mayor aspiración, tanto a
+            nivel industrial como residencial.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="landing-image">
+      <div class="image-container">
+        <img src="../assets/images/Foto2.jpg" alt="BLUEMET" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-information productos">
+  <div class="section-header">
+    <h2 class="title">
+      <i class="fa-solid fa-ranking-star"></i>
+      Productos Destacados
+    </h2>
+    <hr />
+    <p class="desc">
+      Aquí tienes una lista de los productos más vistos.
+    </p>
+    <div class="button-container">
+      <a href="/content/productos">Descubrir más
+        <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="items-container">
+
+      {{#each productos_recientes}}
+
+        <button class="item" id="{{ID_PRODUCTO}}">
+          <div class="item-image">
+            <img src="{{IMG}}" loading="lazy" />
+          </div>
+          <div class="item-body">
+            <h3 class="title">{{NOMBRE_PRODUCTO}}</h3>
+            <p class="desc">
+              <i class="fa-solid fa-earth-americas"></i>
+              {{PROCEDENCIA}}
+            </p>
+            <p class="desc">
+              <i class="fa-solid fa-list"></i>
+              {{CATEGORIA}}
+            </p>
+            {{#if TIPO_PRODUCTO}}
+            <p class="desc">
+              <i class="fa-solid fa-box"></i>
+              {{TIPO_PRODUCTO}}
+            </p>
+            {{/if}}
+          </div>
+        </button>
+
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="section-information nosotros" id="Nosotros">
+  <div class="section-header">
+    <h2 class="title">
+      <i class="fa-solid fa-users"></i>
+      Nosotros
+    </h2>
+    <hr />
+  </div>
+  <div class="section-body">
+    <div class="main-item-container">
+      <p>
+        Somos una empresa uruguaya con más de 20 años de experiencia, dedicada a
+        la fabricación e instalación de una vastísima lista de productos
+        relacionados con el rubro metalúrgico.
+      </p>
+
+      <p>
+        La formalidad y la responsabilidad ante nuestros clientes es nuestra
+        mayor satisfacción.
+      </p>
+
+      <p>
+        Solucionar sus necesidades es nuestra mayor aspiración, tanto a nivel
+        industrial como residencial.
+      </p>
+
+      <p>
+        Además, estamos apoyados por prestigiosas empresas internacionales, que
+        nos suministran gran variedad de productos y un excelente soporte
+        técnico, que amplían nuestra gama de productos de alta calidad y
+        tecnología para brindar las mejores soluciones a nuestros clientes.
+      </p>
+      <p>
+        Nuestra fabricación se ha destacado a lo largo de estos años por la
+        calidad del producto terminado.
+      </p>
+    </div>
+    <div class="image-container">
+      <img src="../assets/images/nosotros1.webp" alt="BLUEMET" />
+      <img src="../assets/images/nosotros2.webp" alt="BLUEMET" />
+      <img src="../assets/images/nosotros3.webp" alt="BLUEMET" />
+    </div>
+  </div>
+</section>
+
+<section class="section-information proyectos" id="Proyectos">
+  <div class="section-header">
+    <h2 class="title">
+      <i class="fa-solid fa-scroll"></i>
+      Nuestros Proyectos
+    </h2>
+    <hr />
+    <p class="desc">Algunos de nuestros proyectos finalizados.</p>
+  </div>
+  <div class="section-body">
+    <div class="main-item-container">
+      <div class="main-item">
+        <div class="visible">
+          <img src="../assets/images/Proyecto_UAM.webp" alt="BLUEMET" />
+        </div>
+        <div class="hover">
+          <h3 class="title">
+            UAM - Unidad Agroalimentaria Metropolitana.
+          </h3>
+          <p class="desc">
+            La UAM está ubicada en un predio delimitado por la Ruta Nacional Nº
+            5, Camino Luis Eduardo Pérez, Camino La Higuerita y el Arroyo
+            Pantanoso.
+          </p>
+        </div>
+      </div>
+
+      <div class="main-item">
+        <div class="visible">
+          <img src="../assets/images/Proyecto_Conaprole.webp" alt="BLUEMET" />
+        </div>
+        <div class="hover">
+          <h3 class="title">Conaprole</h3>
+          <p class="desc">
+            Con 8 plantas Conaprole se asegura un nivel de industrialización de
+            clase mundial a la excelente calidad de la leche que es remitida por
+            los socios cooperarios.
+          </p>
+        </div>
+      </div>
+
+      <div class="main-item">
+        <div class="visible">
+          <img src="../assets/images/Foto2.jpg" alt="BLUEMET" />
+        </div>
+        <div class="hover">
+          <h3 class="title">Proyecto 3</h3>
+          <p class="desc">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+            harum?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> footer}}

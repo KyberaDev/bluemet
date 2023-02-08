@@ -1,0 +1,61 @@
+/*
+ * Selectors
+ */
+
+%main_button
+    display: block
+    padding: 10px 20px
+    background-color: $azul_bluemet
+    color: $amarillo_bluemet
+    transition: background-color .3s, color .3s, transform .3s
+    text-align: center
+    border: none
+    cursor: pointer
+
+%main_button_hover
+    transform: scale(1.05)
+    background-color: $amarillo_contraste
+    color: $azul_bluemet
+
+%table_button
+    background: transparent
+    border: none
+    margin: 5px
+    cursor: pointer
+    color: $azul_bluemet
+    text-align: center
+    width: 30px
+
+    i
+        transition: .2s
+
+%table_button_hover
+    i
+        color: $amarillo_contraste
+
+%main_input
+    margin: 5px 10px
+    position: relative
+    min-width: 200px
+    height: 35px
+    box-sizing: border-box
+    .icon
+        position: absolute
+        line-height: 35px
+        font-size: .8em
+        color: $azul_bluemet
+
+    input, select, textarea
+        width: 100%
+        height: 100%
+        box-sizing: border-box
+        padding-left: 20px
+        border: none
+        border-bottom: 1px solid #ccc
+        outline: none
+        color: $azul_bluemet
+        font-size: .9em
+        background-color: transparent
+
+    input:focus, select:focus, textarea:focus
+        border-bottom: 1px solid $azul_bluemet

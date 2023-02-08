@@ -1,0 +1,176 @@
+nav
+    width: 100%
+    height: 80px
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    position: relative
+    z-index: 20
+
+    animation: fadeInDown 1s forwards
+
+    .nav-container
+        max-width: 1400px
+        width: 100%
+        margin: 0 20px
+
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        .nav-logo-links
+            height: 80px
+            display: flex
+            justify-content: center
+            align-items: center
+
+            .nav-logo
+                min-width: 200px
+
+            .nav-links
+                margin-left: 2em
+                a
+                    margin: 0 2.1em
+                    font-size: 17px
+                    color: #333
+                    font-weight: normal
+                    transition: .1s
+                a:hover
+                    color: $amarillo_contraste
+
+        .nav-login-responsive
+            display: flex
+            justify-content: center
+            align-items: center
+
+            .login-button
+                @extend %main_button
+                +border-radius(10px)
+                width: 65px
+            .login-button:hover
+                @extend %main_button_hover
+
+            #button-responsive-menu
+                background: transparent
+                color: $azul_bluemet
+                border: none
+                font-size: 2em
+                cursor: pointer
+                margin-left: 1em
+                display: none
+
+            .item-user
+                margin: 7px 0
+                width: 100%
+                +border-radius(10px)
+
+                display: none
+                justify-content: flex-start
+                align-items: center
+
+                a
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    .icon
+                        position: relative
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        +border-radius(10px)
+                        transition: .2s
+
+                        min-width: 40px
+                        height: 40px
+                        background-color: #ccc
+
+                    .description,.user-info
+                        min-width: 150px
+                        padding-left: 10px
+                        font-size: 14px
+                        transition: .2s
+                        color: $azul_bluemet
+
+                    .user-info
+                        display: flex
+                        justify-content: center
+                        align-items: flex-start
+                        flex-direction: column
+                        color: $azul_bluemet
+                        .name
+                            max-width: 200px
+                            white-space: nowrap
+                            text-overflow: ellipsis
+                            overflow: hidden
+                            font-size: 18px
+                        .role
+                            max-width: 200px
+                            font-size: 14px
+
+                .logout-button
+                    @extend %main_button
+                    +border-radius(50%)
+                    width: 45px
+                    height: 45px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                .logout-button:hover
+                    @extend %main_button_hover
+
+@media screen and (max-width: 1090px)
+    nav
+        .nav-container
+            .nav-logo-links
+                .nav-links
+                    position: fixed
+                    top: 0
+                    left: -32px
+
+                    width: 100%
+                    height: 100vh
+
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    flex-direction: column
+
+                    opacity: 0
+                    transform: translateX(100%)
+
+                    background-color: rgba(255, 255, 255, .9)
+                    z-index: -1
+
+                    transition: opacity 1s, transform .5s
+
+                    a
+                        margin: 2em 0
+                        font-size: 1.3em
+
+                .nav-links.active
+                    opacity: 1
+                    transform: translateX(0)
+
+            .nav-login-responsive
+                #button-responsive-menu
+                    display: block
+
+@media screen and (max-width: 600px)
+    nav
+        .nav-container
+            .nav-login-responsive
+                .item-user
+                    display: none !important
+
+@media screen and (max-width: $breakpoint-mobile)
+    nav
+        .nav-container
+            .nav-login-responsive
+                .login-button
+                    display: none
+                #button-responsive-menu
+                    margin: 0

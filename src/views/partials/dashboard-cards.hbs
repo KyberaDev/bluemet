@@ -1,0 +1,54 @@
+      <div class="card">
+        <div class="card-top">
+          <span class="number" id="cantidad_productos"> 
+            {{#each data}}
+                {{cantidad_productos}} 
+            {{/each}}
+          </span>
+          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+        </div>
+        <div class="card-info">
+          <p>Productos</p>
+        </div>
+      </div>
+      {{#if data.isAdmin}}
+      <div class="card">
+        <div class="card-top">
+          <span class="number" id="cantidadUsuarios"> 
+            {{#each data}}
+                {{usuarios_dashboard.length}} 
+            {{/each}}  
+          </span>
+          <span class="icon"><i class="fa-solid fa-people-group"></i></span>
+        </div>
+        <div class="card-info">
+          <p>Usuarios</p>
+        </div>
+      </div>
+      {{/if}}
+      <div class="card">
+        <div class="card-top">
+          <span class="number" id="vistasTotalesProductos">
+             {{#each data}}
+                    {{vistas}}
+             {{/each}} 
+          </span>
+          <span class="icon"><i class="fa-solid fa-chart-line"></i></span>
+        </div>
+        <div class="card-info">
+          <p>Visitas Totales de Productos</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <span class="number">
+            {{#each data}}
+                {{count}}
+            {{/each}} 
+          </span>
+          <span class="icon"><i class="fa-solid fa-laptop"></i></span>
+        </div>
+        <div class="card-info">
+          <p>Visitas Totales de Bluemet</p>
+        </div>
+      </div>

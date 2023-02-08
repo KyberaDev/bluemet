@@ -1,0 +1,67 @@
+<?php
+
+if (isset($_POST['DATA'])) {
+    $data = json_decode($_POST['DATA'], true);
+    //                
+    if ($data['PROCEDENCIA'] != "Importacion") {
+      $tipo = '<p class="desc"><i class="fa-solid fa-box"></i> '.$data['TIPO'].'</p>';
+    }else {
+      $tipo = "";
+    }
+  }
+
+$modalBody ='
+      <div class="modal">
+        <div class="modal-content productos">
+          <button class="close-button">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div class="modal-content-body">
+            <div class="modal-container">
+              <div class="main-container">
+                <div class="image">
+                  <img src="../'.$data['IMG'].'" alt="" />
+                </div>
+                <div class="item-body">
+                  <h3 class="title">'.$data['NOMBRE_PRODUCTO'].'</h3>
+                  <p class="desc"><i class="fa-solid fa-earth-americas"></i> '.$data['PROCEDENCIA'].'</p>
+                  <p class="desc"><i class="fa-solid fa-list"></i> '.$data['CATEGORIA'].'</p>
+                  '.$tipo.'
+                </div>
+              </div>
+              <div class="secondary-container">
+                <h2 class="title">Contacto</h2>
+                <p class="desc">¿Quieres saber más acerca de este producto? ¡Contactanos!</p>
+                <form class="input-wrapper" action="Javascript:void(0)" method="post">
+                  <div class="input">
+                    <input type="text" class="form-input" name="nombre" placeholder="Nombre" id="nombre"></input>
+                  </div>
+                  <div class="input">
+                    <input type="email" class="form-input" name="email" placeholder="Correo Electrónico" id="email"></input>
+                  </div>
+                  <div class="input">
+                    <textarea class="form-input" name="consulta" placeholder="Consulta" id="consulta"></textarea>
+                  </div>
+                  <input type="submit" class="submit-button" value="Enviar" id="submit">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>';
+
+      
+  $modalBody .= '
+  <script>
+    $(".close-button").click(function () {
+      $(".modal").html("");
+      $(".modal").hide();
+    });
+    $(".modal-button").click(function () {
+      $(".modal").html("");
+      $(".modal").hide();
+    });
+  </script>';
+
+  echo $modalBody;

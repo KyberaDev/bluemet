@@ -1,0 +1,38 @@
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo-links">
+      <div class="nav-logo">
+        <a href="https://bluemet.com.uy/">
+          <img
+            src="https://bluemet.com.uy/assets/svg/Imagotipo Horizontal - BlueMet.svg"
+            alt="Imagotipo Bluemet"
+            loading="lazy"
+          />
+        </a>
+      </div>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Inicio</a>
+        <a class="nav-link" href="/content/productos">Productos</a>
+        <a class="nav-link" href="/#Nosotros">Nosotros</a>
+        <a class="nav-link" href="/#Proyectos">Proyectos</a>
+      </div>
+    </div>
+        <div class="nav-login-responsive">
+    {{#if user}}
+      <div class="item-user">
+        <a href="/dashboard/" id="button-user">
+          <span class="icon"
+            ><p id="ICONO">{{#sideBarNameLetters user.NOMBRE}}{{/sideBarNameLetters}}</p></i
+          ></span>
+          <div class="user-info">
+              <span class="name" id="USERNAME">{{user.NOMBRE}}</span>
+              <span class="role" id="USER_TYPE">{{#tipoUsuario user.TIPO_USUARIO}} {{/tipoUsuario}}</span>
+          </div>
+        </a>
+        <a class="logout-button" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+      </div>
+    {{/if}}
+    {{#if_not user}} {{/if_not}}
+    </div>
+  </div>
+</nav>

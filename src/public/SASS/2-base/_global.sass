@@ -1,0 +1,27 @@
+html
+    box-sizing: border-box
+    background-color: white
+    scroll-behavior: smooth
+
+* *:before *:after
+    box-sizing: inherit
+
+a
+    text-decoration: none
+
+.main_button
+    @extend %main_button
+.main_button:hover
+    @extend %main_button_hover
+
+::-webkit-scrollbar
+    width: 8px
+
+::-webkit-scrollbar-track
+    background: #fff
+
+::-webkit-scrollbar-thumb
+    background: #666
+
+::-webkit-scrollbar-thumb:hover
+    background: #444

@@ -1,0 +1,127 @@
+{{> header}}
+
+        <div id="pre-loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+<div id="modal">
+</div>
+
+<section class="content-wrapper">
+  <div class="sidebar-container">
+    <div class="filters-container">
+      <h3 class="title">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        Productos
+      </h3>
+      <h5 class="subtitle">
+        <i class="fa-solid fa-arrow-down-short-wide"></i>
+        Filtros
+      </h5>
+      <div class="filter">
+        <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input
+          class="filter-input"
+          type="text"
+          placeholder="Buscar por nombre"
+          id="buscador"
+        />
+      </div>
+
+      <div class="filter">
+        <span class="icon"><i class="fa-solid fa-earth-americas"></i></span>
+        <select id="selectProcedencia">
+          <option value="0" selected disabled hidden>
+            Seleccione Procedencia
+          </option>
+          <option value="1">Fabricación Nacional</option>
+          <option value="2">Productos Importados</option>
+        </select>
+      </div>
+
+      <div class="filter" id="categoria_producto">
+        <span class="icon"><i class="fa-solid fa-list"></i></span>
+        <select id="selectCategoria"></select>
+      </div>
+
+      <div class="filter" id="tipo_producto">
+        <span class="icon"><i class="fa-solid fa-box"></i></span>
+        <select id="selectTipoProducto"></select>
+      </div>
+
+      <button class="reset-filter-button" id="reset-filter">
+        <span class="icon">
+          <i class="fa-solid fa-rotate-left"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="main_section-container">
+    <div class="items-container">
+
+      {{#each productos}}
+
+        <button class="item" id="{{ID_PRODUCTO}}">
+          <div class="item-image">
+            <img
+              src="{{IMG}}"
+              loading="lazy"
+            />
+          </div>
+          <div class="item-body">
+            <h3 class="title">{{NOMBRE_PRODUCTO}}</h3>
+            <p class="desc">
+              <i class="fa-solid fa-earth-americas"></i>
+              {{PROCEDENCIA}}
+            </p>
+            <p class="desc">
+              <i class="fa-solid fa-list"></i>
+              {{CATEGORIA}}
+            </p>
+            {{#if TIPO_PRODUCTO}}
+            <p class="desc">
+              <i class="fa-solid fa-box"></i>
+              {{TIPO_PRODUCTO}}
+            </p>
+            {{/if}}
+          </div>
+        </button>
+
+        <script>
+          let producto{{ID_PRODUCTO}} = {
+              ID_PRODUCTO: '{{ID_PRODUCTO}}',
+              NOMBRE_PRODUCTO: '{{NOMBRE_PRODUCTO}}',
+              PROCEDENCIA: '{{PROCEDENCIA}}',
+              CATEGORIA: '{{CATEGORIA}}',
+              TIPO_PRODUCTO: '{{TIPO_PRODUCTO}}'
+              }
+          document.getElementById({{ID_PRODUCTO}}).addEventListener("click", function () {
+            $.ajax({
+                type: "POST",
+                url: "./modal.php",
+                data: { DATA: JSON.stringify(data) },
+                success: function (response) {
+                      $("#modal").html(response)
+                      $(".modal").css('display', 'flex')
+                      $("#submit").on("click", function () {
+                          enviarFormularioContacto(data['ID_PRODUCTO'])
+                      });
+                }
+            });
+            //modal('Producto', producto{{ID_PRODUCTO}})
+          });
+        </script>
+      {{/each}}
+
+    </div>
+  </div>
+</section>
+
+
+
+{{> footer}}

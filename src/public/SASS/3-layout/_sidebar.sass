@@ -1,0 +1,237 @@
+#sidebar
+    position: fixed
+    z-index: 20
+    .sidebar-responsive-button
+        position: fixed
+        top: 0
+        left: 95px
+        z-index: 10
+
+        width: 35px
+        height: 50px
+
+        display: flex
+        justify-content: center
+        align-items: center
+        border: none
+        cursor: pointer
+        background: transparent
+
+        i
+            font-size: 1.5em
+            color: $azul_bluemet
+
+    .sidebar
+        width: 80px
+        height: 100vh
+        background-color: #fff
+        border-radius: 0 10px 10px 0
+        box-shadow: $box_shadow
+
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        flex-direction: column
+
+        overflow: hidden
+        overflow-y: auto
+
+        position: fixed
+        top: 0
+        left: 0
+
+        transition: width .7s
+
+        .sidebar-container
+            margin-left: 10px
+            padding: 20px 10px
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            flex-direction: column
+
+            position: relative
+
+            .sidebar-responsive
+                position: absolute
+                top: 30px
+                right: -50px
+                background: transparent
+                border: none
+                i
+                    font-size: 1.5em
+                    color: $azul_bluemet
+                    transition: .2s
+                i:hover
+                    color: $amarillo_contraste
+
+            .sidebar-logo
+                margin: 7px 0
+                width: 100%
+                +border-radius(10px)
+
+                display: flex
+                justify-content: flex-start
+                align-items: center
+
+                .logo
+                    position: relative
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    +border-radius(10px)
+                    transition: .2s
+                    background: $azul_bluemet
+
+                    min-width: 40px
+                    height: 40px
+
+                    i
+                        color: $amarillo_contraste
+                        font-size: 1.3em
+
+                    p
+                        color: #fff
+                        font-weight: bold
+                        font-size: 1.2em
+
+                        span
+                            color: $amarillo_contraste
+
+                .title
+                    min-width: 150px
+                    padding-left: 25px
+                    font-size: 15px
+                    transition: .2s
+                    color: $azul_bluemet
+                    font-weight: bold
+
+                    span
+                        color: $amarillo_contraste
+
+            .divider
+                width: 100%
+                display: flex
+                justify-content: flex-start
+                align-items: center
+                h4
+                    font-size: 13px
+                    color: #aaa
+                    font-weight: normal
+                    margin: 10px 0
+                    margin-top: 20px
+
+                hr
+                    width: 40px
+                    border: 1px solid #ddd
+                    text-align: left
+                    margin-left: 0
+                    transition: width .7s
+
+            .item-container,.item-container-bottom
+                display: flex
+                justify-content: center
+                align-items: center
+                flex-direction: column
+
+                .item,.item-user
+                    margin: 7px 0
+                    width: 100%
+                    +border-radius(10px)
+
+                    display: flex
+                    justify-content: flex-start
+                    align-items: center
+
+                    a
+                        display: flex
+                        justify-content: center
+                        align-items: center
+
+                        .icon
+                            position: relative
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                            +border-radius(10px)
+                            transition: .2s
+
+                            min-width: 40px
+                            height: 40px
+
+                        .description,.user-info
+                            min-width: 150px
+                            padding-left: 25px
+                            font-size: 14px
+                            transition: .2s
+                            color: $azul_bluemet
+
+                        .user-info
+                            display: flex
+                            justify-content: center
+                            align-items: flex-start
+                            flex-direction: column
+                            color: $azul_bluemet
+                            .name
+                                max-width: 200px
+                                white-space: nowrap
+                                text-overflow: ellipsis
+                                overflow: hidden
+                                font-size: 18px
+                            .role
+                                min-width: 200px
+                                font-size: 14px
+
+                    i
+                        color: $azul_bluemet
+                        font-size: 1.1em
+
+                    .item-description
+                        position: relative
+                        left: 50px
+
+                .item:hover
+                    .icon
+                        background-color: #eee
+                    .description
+                        transform: scale(1.1)
+
+                .item-user
+                    a
+                        .icon
+                            background-color: #eee
+
+    .sidebar::-webkit-scrollbar
+        width: 5px
+
+    .sidebar::-webkit-scrollbar-thumb
+        border-radius: 10px
+
+@media screen and (min-width: ($breakpoint-mobile + 1))
+    #sidebar
+        .sidebar-responsive-button
+            display: none
+        .sidebar:hover
+            width: 300px
+            .divider
+                hr
+                    width: 100%
+
+@media screen and (max-width:$breakpoint-mobile)
+    #sidebar
+        .sidebar
+            transform: translateX(-80px)
+            transition: all 1s
+            width: 80px
+
+        .sidebar-responsive-button
+            display: flex
+            transform: translateX(-80px)
+
+        .sidebar.toggle
+            width: 100%
+            transform: translateX(0)
+
+            .divider
+                hr
+                    width: 100%

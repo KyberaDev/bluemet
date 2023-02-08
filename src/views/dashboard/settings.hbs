@@ -1,0 +1,125 @@
+<div id="sidebar">
+    {{> sidebar}}
+</div>
+
+    <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+
+<section class="control-panel">
+  <div class="panel-container">
+    <div class="settings-container">
+      <h1 class="title">
+        <i class="fa-solid fa-gears"></i>
+        Configuración
+      </h1>
+      <h4>
+        Realiza cambios a tu cuenta con las siguientes herramientas.
+      </h4>
+      <div class="tools-container">
+        <a class="tool" onclick="openSetting('editUser')">
+          <i class="fa-solid fa-user-gear icon"></i>
+        </a>
+        <a class="tool" onclick="openSetting('changePassword')">
+          <i class="fa-solid fa-key icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="settingTool-container">
+  <button onclick="toggleSetting()" class="closeButton">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="tool">
+    <img
+      src="https://bluemet.com.uy/assets/svg/Imagotipo Vertical - BlueMet (Blanco).svg"
+      alt="Logo Bluemet"
+      class="toolIMG"
+    />
+    <div class="editUser">
+      <h3>
+        <i class="fa-solid fa-user-gear icon"></i>
+        Editar Usuario
+      </h3>
+
+      <form action="/dashboard/modifyUser" method="post">
+        <div class="input">
+          <i class="fa-solid fa-user icon"></i>
+          <input type="text" value="{{user.USUARIO}}" name="USUARIO" placeholder="Nombre de Usuario" />
+        </div>
+
+        <div class="input">
+          <i class="fa-solid fa-at icon"></i>
+          <input type="email" value="{{user.MAIL}}" name="MAIL" placeholder="Correo Electrónico" />
+        </div>
+
+        <input type="submit" value="Guardar Cambios" />
+      </form>
+    </div>
+
+    <div class="editPassword">
+      <h3>
+        <i class="fa-solid fa-key icon"></i>
+        Cambiar Contraseña
+      </h3>
+
+      <form action="/dashboard/changePassword" method="post">
+        <div class="input">
+          <i class="fa-solid fa-unlock-keyhole icon"></i>
+          <input
+            type="password"
+            id="oldpass"
+            name="OLD_PASSWORD"
+            placeholder="Contraseña Anterior"
+          />
+        </div>
+
+        <div class="input">
+          <i class="fa-solid fa-lock icon"></i>
+          <input type="password" name="PASSWD" id="newpass" placeholder="Nueva Contraseña" />
+        </div>
+
+        <div class="input">
+          <i class="fa-solid fa-lock icon"></i>
+          <input
+            type="password"
+            id="re-newpass"
+            name="RE_PASSWORD"
+            placeholder="Repita la Nueva Contraseña"
+          />
+        </div>
+
+        <input type="submit" value="Cambiar Contraseña" />
+      </form>
+    </div>
+  </div>
+</div>
+        <script>
+            let openSetting = (setting) => {
+                document.querySelector(`.editUser`).style.display = `none`;
+                document.querySelector(`.editPassword`).style.display = `none`;
+
+                toggleSetting();
+                if (setting == "editUser") {
+                    document.querySelector(`.editUser`).style.display = `block`;
+                } else if (setting == "changePassword") {
+                    document.querySelector(
+                        `.editPassword`
+                    ).style.display = `block`;
+                }
+            };
+
+            let toggleSetting = () => {
+                document
+                    .querySelector(`.settingTool-container`)
+                    .classList.toggle(`active`);
+            };
+        </script>
